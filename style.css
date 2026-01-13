@@ -1,0 +1,268 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+  color: white;
+  overflow-x: hidden;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+.navbar a {
+  margin-left: 25px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 100px;
+}
+
+.hero-text h1 {
+  font-size: 55px;
+}
+
+.hero-text span {
+  color: #00ffb3;
+}
+
+.hero-text button {
+  margin-top: 25px;
+  padding: 14px 34px;
+  background: linear-gradient(45deg, #00ffb3, #00c6ff);
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+.hero-image img {
+  width: 800px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+  animation: float 4s ease-in-out infinite;
+}
+
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+.section {
+  padding: 120px 80px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+
+.character-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 20px;
+  flex-wrap: nowrap;
+}
+
+.character-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.character-grid::-webkit-scrollbar-thumb {
+  background: #00ffb3;
+  border-radius: 4px;
+}
+
+.character-card {
+  flex: 0 0 auto;
+  width: 300px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 18px;
+  padding: 15px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.character-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.character-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #00ffb3;
+}
+
+.gallery-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 20px;
+  flex-wrap: nowrap; 
+}
+
+.gallery-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+  background: #00ffb3;
+  border-radius: 4px;
+}
+.gallery-large {
+  width: 500px;  
+  height: 400px;  
+}
+
+.gallery-grid img {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: 0.4s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.08);
+}
+
+.service-cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.card {
+  padding: 35px;
+  width: 260px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 0 40px #00ffb3;
+}
+
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.feature {
+  padding: 25px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+}
+
+
+.contact form {
+  max-width: 450px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+}
+
+.contact button {
+  padding: 14px;
+  background: linear-gradient(45deg, #00ffb3, #00c6ff);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: black;
+}
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 1s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }
+
+
+@media(max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-image img {
+    width: 90%;
+    height: auto;
+  }
+}
+
+@media(max-width: 768px) {
+  .service-cards {
+    flex-direction: column;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .character-card, .gallery-grid img {
+    width: 80%; 
+    height: auto;
+  }
+}
